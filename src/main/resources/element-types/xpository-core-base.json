@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "description": "Root element type. All element types inherit from this base type. Provides no additional properties beyond the core Element structure (elementId, audit fields, type reference).",
+  "x-xpository": {
+    "namespace": "xpository:core:base",
+    "version": "1.0.0",
+    "displayName": "Base Element",
+    "parent": null,
+    "metadata": {
+      "abstract": true,
+      "category": "core",
+      "icon": "cube",
+      "color": "#6B7280"
+    }
+  },
+
+  "properties": {}
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "description": "Container element for organizing other elements in a tree structure. Used in TREE collections to create hierarchical organization.",
+  "x-xpository": {
+    "namespace": "xpository:core:folder",
+    "version": "1.0.0",
+    "displayName": "Folder",
+    "parent": "xpository:core:standard",
+    "metadata": {
+        "abstract": false,
+        "category": "core",
+        "icon": "folder",
+        "color": "#FCD34D",
+        "isContainer": true
+    }
+  },
+  "properties": {
+    "icon": {
+      "type": "string",
+      "x-indexed": false,
+      "default": "folder",
+      "description": "Icon identifier for UI display"
+    },
+    "expanded": {
+      "type": "boolean",
+      "x-indexed": false,
+      "default": false,
+      "description": "UI state - whether folder is expanded in tree view"
+    }
+  }
+}

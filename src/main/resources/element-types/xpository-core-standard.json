@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "description": "Standard element type for core functionality.",
+  "x-xpository": {
+    "namespace": "xpository:core:standard",
+    "version": "1.0.0",
+    "displayName": "Standard Element",
+    "parent": "xpository:core:base",
+    "metadata": {
+      "abstract": false,
+      "category": "core",
+      "icon": "document-text",
+      "color": "#3B82F6"
+    }
+  },
+  "required": ["title"],
+  "properties": {
+    "title": {
+      "type": "string",
+      "x-indexed": true,
+      "description": "Element title or name",
+      "maxLength": 255
+    },
+    "description": {
+      "type": "string",
+      "x-indexed": true,
+      "description": "Detailed description of the element"
+    },
+    "tags": {
+      "type": "array",
+      "items": {"type": "string"},
+      "x-indexed": true,
+      "description": "Keywords for categorization and search"
+    },
+    "status": {
+      "type": "string",
+      "x-indexed": true,
+      "enum": ["draft", "active", "archived"],
+      "default": "draft",
+      "description": "Lifecycle status of the element"
+    }
+  }
+}
