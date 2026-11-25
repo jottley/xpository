@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "description": "Document-oriented element type with properties for managing document metadata, authorship, and publication workflow.",
+  "x-xpository": {
+    "namespace": "xpository:document:generic",
+    "version": "1.0.0",
+    "displayName": "Generic Document",
+    "parent": "xpository:core:standard",
+    "metadata": {
+        "abstract": false,
+        "category": "document",
+        "icon": "document",
+        "color": "#10B981"
+    }
+  },
+  "required": ["title"],
+  "properties": {
+    "documentType": {
+      "type": "string",
+      "x-indexed": true,
+      "enum": ["report", "memo", "specification", "guide", "policy", "other"],
+      "description": "Type of document"
+    },
+    "author": {
+      "type": "string",
+      "x-indexed": true,
+      "description": "Document author name"
+    },
+    "publishDate": {
+      "type": "string",
+      "format": "date",
+      "x-indexed": true,
+      "description": "Date the document was published"
+    },
+    "expirationDate": {
+      "type": "string",
+      "format": "date",
+      "x-indexed": true,
+      "description": "Date when document expires or requires review"
+    },
+    "language": {
+      "type": "string",
+      "x-indexed": true,
+      "default": "en",
+      "description": "Document language code (ISO 639-1)"
+    },
+    "keywords": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "x-indexed": true,
+      "description": "Subject keywords for classification"
+    },
+    "confidentiality": {
+      "type": "string",
+      "x-indexed": true,
+      "enum": ["public", "internal", "confidential", "restricted"],
+      "default": "internal",
+      "description": "Confidentiality classification"
+    }
+  }
+}

@@ -1,0 +1,64 @@
+# Customer Custom Element Types
+
+This directory is for customer-defined element types that extend the out-of-the-box types.
+
+Custom types can inherit from:
+- xpository:core:base
+- xpository:core:standard
+- xpository:document:generic
+- Any other custom types
+
+## Example Custom Type
+
+Create a file like `my-custom-type.json`:
+
+```json
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "description": "Custom task element for project management",
+  "x-xpository": {
+    "namespace": "mycompany:project:task",
+    "version": "1.0.0",
+    "displayName": "Project Task",
+    "parent": "xpository:core:standard",
+    "metadata": {
+      "abstract": false,
+      "category": "custom",
+      "icon": "clipboard-list",
+      "color": "#F59E0B"
+    }
+  },
+  "required": ["title", "priority", "dueDate"],
+  "properties": {
+    "priority": {
+      "type": "string",
+      "x-indexed": true,
+      "enum": ["low", "medium", "high", "critical"],
+      "description": "Task Priorities. Value can be low, medium, high, or critical"
+    },
+    "assignee": {
+      "type": "string",
+      "x-indexed": true,
+      "description": "Who the task is assigned to",
+      "maxLength": 255
+    },
+    "dueDate": {
+      "type": "string",
+      "format": "date",
+      "x-indexed": true,
+      "description": "The date the task is due"
+    }
+  }
+}
+```
+
+*Note*: Because this model inherits fomr the standard core model, it must declare the required properties from the parent model.
+
+## Configuration
+
+To load custom types from external filesystem locations, add to `application.properties`:
+
+```properties
+xpository.element-types.locations[2]=file:/opt/xpository/types/*.json
+```
